@@ -1,0 +1,26 @@
+{
+    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+    "meta": {
+        "version": "PTDL_v1"
+    },
+    "exported_at": "2020-03-08T04:20:06-07:00",
+    "name": "Battlefield 1942",
+    "author": "support@silvertechhosting.com",
+    "description": "WAR WAR WAR!",
+    "image": "cetiusrex\/bf1942",
+    "startup": ".\/start.sh",
+    "config": {
+        "files": "{}",
+        "startup": "{\r\n    \"done\": \"using statically linked binary\"\r\n}",
+        "logs": "{}",
+        "stop": "^C"
+    },
+    "scripts": {
+        "installation": {
+            "script": "#!\/bin\/bash\r\n\r\ndpkg --add-architecture i386\r\napt update\r\napt -y install curl wget file tar bzip2 gzip unzip bsdmainutils python util-linux ca-certificates binutils bc jq tmux lib32gcc1 libstdc++6 libstdc++6:i386 libncurses5:i386\r\n\r\n# Server Files: \/mnt\/server\r\n\r\nmkdir -p \/mnt\/server\r\ncd \/mnt\/server\r\n\r\necho -e \"getting files from http:\/\/files.linuxgsm.com\/BattleField1942\/bf1942_lnxded-1.61-hacked-to-1.612.full.tar.bz2\"\r\ncurl http:\/\/files.linuxgsm.com\/BattleField1942\/bf1942_lnxded-1.61-hacked-to-1.612.full.tar.bz2 | tar xj --strip-components=1\r\necho -e \"getting files from http:\/\/team-simple.org\/download\/bf1942_lnxded-1.612-patched.tar.gz\"\r\ncurl http:\/\/team-simple.org\/download\/bf1942_lnxded-1.612-patched.tar.gz | tar xz --strip-components=1\r\n\r\necho -e \"Lets see what files we have\"\r\nls -al",
+            "container": "ubuntu:18.04",
+            "entrypoint": "bash"
+        }
+    },
+    "variables": []
+}
